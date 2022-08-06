@@ -1,6 +1,9 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.function.DoubleToIntFunction;
+
+import javax.imageio.plugins.tiff.ExifTIFFTagSet;
 
 // import java.io.File;
 // import java.io.FileNotFoundException;
@@ -663,3 +666,252 @@ import java.util.HashMap;
 // }
 
 // }
+
+// leetcode
+
+/*
+ * You are given a large integer represented as an integer array digits, where
+ * each digits[i] is the ith digit of the integer. The digits are ordered from
+ * most significant to least significant in left-to-right order. The large
+ * integer does not contain any leading 0's.
+ * 
+ * Increment the large integer by one and return the resulting array of digits.
+ * 
+ * 
+ * Example 1:
+ * 
+ * Input: digits = [1,2,3]
+ * Output: [1,2,4]
+ * 
+ * Explanation: The array represents the integer 123.
+ * Incrementing by one gives 123 + 1 = 124.
+ * Thus, the result should be [1,2,4].
+ * 
+ */
+
+// public class hello {
+// public static void main(String[] args) {
+
+// // byte ak[] = { 71, 101, 101, 107, 115 };
+
+// // String s1 = new String(ak);
+// // System.out.println(s1);
+
+// // String s2 = new String(ak, 0, 2);
+// // System.out.println(s2);
+
+// // stringbuffers
+
+// // StringBuffer s = new StringBuffer("GeeksforGeeks");
+
+// // System.out.println(s);
+
+// // s.append("yup");
+// // System.out.println(s);
+
+// // // s.delete(0, 1);
+// // // System.out.println(s);
+
+// // s.insert(1, "ayo");
+// // System.out.println(s);
+
+// // s.reverse();
+// // System.out.println(s);
+// // s.reverse();
+// // System.out.println(s);
+// // s.replace(1, 4, "");
+// // System.out.println(s);
+
+// StringBuffer s = new StringBuffer("GeeksforGeeks");
+// // letws check the length of it
+// int length = s.length();
+
+// System.out.println(length);
+
+// int q = s.capacity();
+// System.out.println(q);
+// }
+
+// }
+
+//string builder, 
+//the big difference between string builder and stringbuffer is that stringbuffer is secure and gd for multithread 
+//and stringbuilder is faster 
+// public class hello {
+//     public static void main(String[] args) {
+
+//         StringBuilder str = new StringBuilder();
+//         str.append("HEY");
+
+//         System.out.println(str);
+//         System.out.println(str.toString());
+
+//     }
+// }
+
+// lets review java a bit 
+//multidimensional Array
+// public class hello {
+//     public static void main(String[] args) {
+//         int[][] myNumbers = { { 1, 2, 3, 4 }, { 5, 6, 7 } };
+//         // int x = myNumbers[1][3];
+
+//         // System.out.println(x); // Outputs 7
+
+//         for (int i = 0; i < myNumbers.length; ++i) {
+//             for (int j = 0; j < myNumbers[i].length; ++j) {
+//                 System.out.println(myNumbers[i][j]);
+//             }
+//         }
+
+//     }
+
+// }
+//methods 
+// public class hello {
+
+//     public static void mymethod() {
+
+//         System.out.println("The method is working");
+
+//     }
+
+//     public static void main(String[] args) {
+
+//         mymethod();
+//         mymethod();
+//         mymethod();
+//     }
+// }
+
+// Java Method Parameters
+
+// public class hello {
+
+//     public static void myMrthod(int num1, int age) {
+
+//         int total = num1 + age;
+
+//         System.out.println("The total num is " + total);
+
+//     }
+
+//     public static void main(String[] args) {
+
+//         myMrthod(1, 19);
+//         myMrthod(2, 19);
+//         myMrthod(3, 19);
+//     }
+// }
+
+//recursive
+
+// public class hello {
+
+//     public static void main(String[] args) {
+
+//         int result = mymethod(10);
+
+//         System.out.println(result);
+//     }
+
+//     public static int mymethod(int k) {
+
+//         if (k > 0) {
+//             return k + mymethod(k - 1);
+//         } else {
+//             return 0;
+//         }
+//     }
+// }
+
+// public class hello {
+
+//     final int x = 5;
+//     int y = 10;
+
+//     public static void main(String[] args) {
+
+//         // accesing the class
+
+//         hello myobj = new hello();
+
+//         // myobj.x = 20;
+
+//         // lets print ot from the class
+//         // we acessing from the class by using the dot
+//         System.out.println(myobj.x);
+//         System.out.println(myobj.y);
+
+//     }
+// }
+
+//polymorphism
+
+// class Animal {
+//     public void mysound() {
+//         System.out.println("Animal sounds like.....");
+//     }
+// }
+
+// class cat extends Animal {
+//     public void mysound() {
+//         System.out.println("mew mew");
+//     }
+// }
+
+// class cow extends Animal {
+//     public void mysound() {
+//         System.out.println("hughh, hughhh");
+//     }
+// }
+
+// public class hello {
+
+//     public static void main(String[] args) {
+//         // lets creat an objects for the animal so we can them
+
+//         Animal myAnumAnimal = new Animal(); /// created an objextsa for ANIMAL
+//         Animal mycat = new cat();
+//         Animal mycow = new cow();
+
+//         myAnumAnimal.mysound();
+//         mycat.mysound();
+//         mycow.mysound();
+
+//     }
+// }
+
+// interface
+
+interface Animal {
+    public void catSound();
+
+    public void dogSound();
+}
+
+class cat implements Animal {
+
+    // lets inherit and give body to catSount();
+    public void catSound() {
+        System.out.println(" Cat makes noice like: mewwww, mewwww, mewwww");
+    }
+
+    // lets inherit and give body to dogsound();
+
+    public void dogSound() {
+        System.out.println(" Dogas sounds like:  poww, powwww, powwww");
+    }
+
+}
+
+public class hello {
+
+    public static void main(String[] args) {
+
+        cat catanddog = new cat();
+
+        catanddog.catSound();
+        catanddog.dogSound();
+    }
+}
